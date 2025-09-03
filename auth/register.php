@@ -42,7 +42,7 @@ if(isset($_POST["submit"])){
 ?>
     <div id="page-content" class="page-content">
         <div class="banner">
-            <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('<?php echo APPURL; ?>assets/img/bg-header.png');">
+            <div class="jumbotron jumbotron-bg text-center rounded-0" style="background: linear-gradient(rgba(255,192,203,0.3), rgba(255,192,203,0.3)), url('<?php echo APPURL; ?>assets/img/bg-header.png'); background-size: cover; background-position: center;">
                 <div class="container">
                     <h1 class="pt-5">
                         Register Page

@@ -2,7 +2,7 @@
 
 session_start();
 
-  define('APPURL', 'http://localhost/Freshcery/');
+  define('APPURL', 'http://localhost/Farmfresh/');
   define('ADMINURL', APPURL.'admin-panel/');
 
 ?>
