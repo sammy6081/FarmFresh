@@ -3,8 +3,8 @@ session_start();
 
 
 define("APPURL", "http://localhost/Farmfresh/");
-define("IMGCATEGORY", "http://localhost/Farmfresh/admin-panel/Categories-admins/img_category/");
-define("IMGPRODUCT", "http://localhost/Farmfresh/admin-panel/products-admins/img_product/");
+define("IMGCATEGORY", "http://localhost/Farmfresh/app/admin-panel/Categories-admins/img_category/");
+define("IMGPRODUCT", "http://localhost/Farmfresh/app/admin-panel/products-admins/img_product/");
 
 require dirname(dirname(__FILE__))."/config/config.php";
 

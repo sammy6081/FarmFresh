@@ -9,16 +9,16 @@ if (basename($_SERVER['PHP_SELF']) == 'config.php') {
 try {
 
     //Host
-    if(!defined('HOST')) define('HOST', 'localhost');
+    if(!defined('HOST')) define('HOST', 'db');
  
     //Database
     if(!defined('DBNAME')) define('DBNAME', 'farmfresh');
 
     //User
-    if(!defined('USER')) define('USER', 'root');
+    if(!defined('USER')) define('USER', 'appuser');
 
     //Password
-    if(!defined('PASSWORD')) define('PASSWORD', '');
+    if(!defined('PASSWORD')) define('PASSWORD', 'appuserpassword');
 
     $conn = new PDO('mysql:host='.HOST.';dbname='.DBNAME, USER, PASSWORD);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
