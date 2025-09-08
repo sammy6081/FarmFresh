@@ -18,3 +18,7 @@ RUN if [ -f composer.json ]; then composer install --no-dev; fi
 
 # Apache config (enable rewrite if needed)
 RUN a2enmod rewrite
+# Set ServerName to suppress warnings
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+# Enable .htaccess overrides
+RUN sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
