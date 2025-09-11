@@ -20,9 +20,7 @@ try {
     //Password
     if(!defined('PASSWORD')) define('PASSWORD', getenv('DB_PASSWORD') ?: 'appuserpassword');
 
-    define('PORT', getenv('DB_PORT') ?: '21482');
-
-    $conn = new PDO('mysql:host='.HOST.';dbname='.DBNAME.';port='.PORT, USER, PASSWORD);
+    $conn = new PDO('mysql:host='.HOST.';dbname='.DBNAME, USER, PASSWORD);
     $conn->ssl_set(null, null, '/var/www/html/ca.pem', null, null);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
