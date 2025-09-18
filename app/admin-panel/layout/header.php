@@ -2,7 +2,7 @@
 
 session_start();
 
-  define('APPURL', 'http://localhost/Farmfresh/app/');
+  define('APPURL', 'http://localhost:8080/');
   define('ADMINURL', APPURL.'admin-panel/');
 
 ?>

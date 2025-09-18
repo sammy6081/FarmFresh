@@ -1,10 +1,9 @@
-<?php
-session_start();
-
-
-define("APPURL", "http://localhost/Farmfresh/");
-define("IMGCATEGORY", "http://localhost/Farmfresh/app/admin-panel/Categories-admins/img_category/");
-define("IMGPRODUCT", "http://localhost/Farmfresh/app/admin-panel/products-admins/img_product/");
+﻿<?php
+ob_start();
+if (session_status() === PHP_SESSION_NONE) { session_start(); }
+define("APPURL","http://localhost:8080/");
+define("IMGCATEGORY", APPURL."admin-panel/Categories-admins/img_category/");
+define("IMGPRODUCT", APPURL."admin-panel/products-admins/img_product/");
 
 require dirname(dirname(__FILE__))."/config/config.php";
 
@@ -14,10 +13,6 @@ if(isset($_SESSION['user_id'])){
 
     $num = $cart->fetch(PDO::FETCH_OBJ);
 }
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html>

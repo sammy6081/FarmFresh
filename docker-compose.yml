@@ -1,19 +1,22 @@
+version: "3.8"
+
 services:
   db:
-    image: mysql:8.0
+    image: postgres:15
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: farmfresh
-      MYSQL_USER: appuser
-      MYSQL_PASSWORD: appuserpassword
+      POSTGRES_DB: farmfresh
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: appuserpassword
     volumes:
-      - mysql-data:/var/lib/mysql
+      - postgres-data:/var/lib/postgresql/data
+      - ./db/init_pg.sql:/docker-entrypoint-initdb.d/init_pg.sql:ro   # put converted Postgres SQL here
     ports:
-      - "3307:3306"
+      - "5433:5432"   # host:container to avoid collisions; inside containers use 5432
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      timeout: 20s
+      test: ["CMD-SHELL", "pg_isready -U appuser -d farmfresh"]
+      interval: 10s
+      timeout: 5s
       retries: 10
 
   web:
@@ -27,18 +30,25 @@ services:
       db:
         condition: service_healthy
     environment:
+      DB_DRIVER: pgsql
+      DB_HOST: db
+      DB_NAME: farmfresh
+      DB_USER: appuser
+      DB_PASSWORD: appuserpassword
+      DB_PORT: 5432
       PHP_ERROR_REPORTING: E_ALL
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+  pgadmin:
+    image: dpage/pgadmin4
     restart: always
-    ports:
-      - "8081:80"
     environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: rootpassword
+      PGADMIN_DEFAULT_EMAIL: admin@local
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8082:80"
     depends_on:
       - db
 
 volumes:
-  mysql-data:
+  postgres-data:
+# End of docker-compose.yml
