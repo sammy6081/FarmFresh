@@ -1,21 +1,21 @@
 <?php 
-
     if (!isset($_SERVER["HTTP_REFERER"])){
-        // redirect them to index page
-        header('location: http://localhost/Freshcery/index.php');
+        header('Location: http://localhost:8080/');
         exit;
     }
 
-?>
+    // include header and config BEFORE any output
+    require "../includes/header.php";
+    require "../config/config.php";
 
-<?php require "../includes/header.php"; ?>
-<?php require "../config/config.php"; ?>
-<?php
     if (!isset($_SESSION['username'])) {
         header("Location:".APPURL."auth/login.php");
         exit;
     }
 ?>
+
+
+
 
 <?php 
 

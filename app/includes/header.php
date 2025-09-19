@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 ob_start();
 if (session_status() === PHP_SESSION_NONE) { session_start(); }
 define("APPURL","http://localhost:8080/");
@@ -41,7 +41,7 @@ if(isset($_SESSION['user_id'])){
             <div class="container">
                 <!-- Navbar Brand -->
                 <a href="<?php echo APPURL; ?>index.php" class="navbar-brand">
-                    <img src="<?php echo APPURL; ?>assets/img/logo/FarmFresh.png" width="150" height="100" alt="">
+                    <img src="<?php echo APPURL; ?>assets/img/logo/FarmFresh.png" width="150" height="200" alt="">
                 </a>
 
                 <!-- Toggle Button -->

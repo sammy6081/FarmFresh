@@ -98,14 +98,13 @@ $allfruits = $fruits->fetchAll(PDO::FETCH_OBJ);
                                                     20% OFF
                                                 </span>
                                             </div>
-                                            <img src="<?php echo IMGPRODUCT; ?><?php echo $mostProduct->image; ?>" alt="Card image 2" class="card-img-top">
+                                            <img src="<?php echo IMGPRODUCT; ?><?php echo $mostProduct->image; ?>" height="300" alt="Card image 2" class="card-img-top">
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title">
                                                 <a href="detail-product.php"><?php echo $mostProduct->title; ?> </a>
                                             </h4>
                                             <div class="card-price">
-                                                <!-- <span class="discount">Rp. 300.000</span> -->
                                                 <span class="reguler">$<?php echo $mostProduct->price; ?>.00</span>
                                             </div>
                                             <a href="<?php echo APPURL;?>products/detail-product.php?id=<?php echo $mostProduct->id; ?>" class="btn btn-block btn-primary">
@@ -144,7 +143,7 @@ $allfruits = $fruits->fetchAll(PDO::FETCH_OBJ);
                                                     20% OFF
                                                 </span>
                                             </div>
-                                            <img src="<?php echo IMGPRODUCT; ?><?php echo $vegetable->image; ?>" alt="Card image 2" class="card-img-top">
+                                            <img src="<?php echo IMGPRODUCT; ?><?php echo $vegetable->image; ?>" height="300" alt="Card image 2" class="card-img-top">
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title">

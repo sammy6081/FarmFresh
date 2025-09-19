@@ -2,14 +2,15 @@
 
     if (!isset($_SERVER["HTTP_REFERER"])){
         // redirect them to index page
-        header('location: http://localhost/Freshcery/index.php');
+        header('location: http://localhost:8080/');
         exit;
     }
 
-?>
-<?php require "../includes/header.php"; ?>
-<?php require "../config/config.php"; ?>
+    require "../includes/header.php"; 
+    require "../config/config.php"; 
 
+ 
+?>
 <?php 
 
     if(isset($_SESSION['user_id'])) {

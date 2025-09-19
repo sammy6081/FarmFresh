@@ -34,18 +34,7 @@ try {
 
     // If you mount a CA cert for TLS and need to enable it, handle it outside here (PDO pgsql TLS handled by libpq env vars)
 } catch (PDOException $e) {
-    // DEV DEBUG: show full PDO error in browser (temporary).
-    // IMPORTANT: remove this before production.
-    $msg = 'DB error: ' . $e->getMessage();
-    error_log($msg);
-    // Show the full message in the page so we can see the cause
-    header('Content-Type: text/plain; charset=utf-8');
-    echo "DEBUG — Database connection error:\n\n";
-    echo $msg . "\n\n";
-    // Also dump the DSN and env vars we used (sanitized)
-    echo "DSN: " . (defined('DB_DRIVER') && DB_DRIVER === 'pgsql' ? sprintf('pgsql:host=%s;port=%s;dbname=%s', HOST, PORT, DBNAME) : sprintf('mysql:host=%s;port=%s;dbname=%s', HOST, PORT, DBNAME)) . "\n";
-    echo "DB_USER: " . USER . "\n";
-    // do NOT echo PASSWORD in production — but for local debugging you may uncomment the next line if needed:
-    // echo "DB_PASSWORD: " . PASSWORD . "\n";
-    exit;
+    error_log('DB error: ' . $e->getMessage());
+    // show safe message
+    die('Database connection failed. Check container logs for details.');
 }
