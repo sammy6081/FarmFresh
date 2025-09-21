@@ -10,10 +10,10 @@ try {
     if (!defined('DB_DRIVER')) define('DB_DRIVER', getenv('DB_DRIVER') ?: 'pgsql');
 
     // Connection settings with safe defaults for the Docker setup
-    if (!defined('HOST')) define('HOST', getenv('DB_HOST') ?: 'db');
-    if (!defined('DBNAME')) define('DBNAME', getenv('DB_NAME') ?: 'farmfresh');
-    if (!defined('USER')) define('USER', getenv('DB_USER') ?: 'appuser');
-    if (!defined('PASSWORD')) define('PASSWORD', getenv('DB_PASSWORD') ?: 'appuserpassword');
+    if (!defined('HOST')) define('HOST', getenv('DB_HOST') ?: 'dpg-d36cgbvfte5s73bbdfag-a');
+    if (!defined('DBNAME')) define('DBNAME', getenv('DB_NAME') ?: 'init_pg_sql');
+    if (!defined('USER')) define('USER', getenv('DB_USER') ?: 'init_pg_sql_user');
+    if (!defined('PASSWORD')) define('PASSWORD', getenv('DB_PASSWORD') ?: 'JeNiXronZueAdPWOufzGl2C2So88Eo3x');
     if (!defined('PORT')) define('PORT', getenv('DB_PORT') ?: (DB_DRIVER === 'pgsql' ? '5432' : '3306'));
 
     // Build DSN depending on driver
