@@ -1,10 +1,10 @@
 <?php require "../includes/header.php";?>
 <?php require "../config/config.php";?>
 <?php
-    // if (isset($_SESSION['username'])) {
-    //     header("Location:".APPURL."index.php");
-    //     exit;
-    // }
+    if (isset($_SESSION['username'])) {
+        header("Location:".APPURL."index.php");
+        exit;
+    }
 ?>
 
 <?php
